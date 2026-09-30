@@ -1,19 +1,12 @@
-import subprocess
-import sys
 import streamlit as st
+import flet as ft
 
-st.set_page_config(page_title="MACALCU Web", page_icon="📊", layout="wide")
+st.set_page_config(page_title="MACALCU Financial Suite", page_icon="📊", layout="wide")
 
-st.title("MACALCU Financial Suite is Loading...")
-st.write("Your application is starting up. If it doesn't appear below shortly, please refresh the page.")
+st.title("📊 MACALCU Financial Suite")
+st.write("Welcome to your cloud financial suite! Loading your Flet application interface below:")
 
-# This runs your existing Flet application backend in the background
-@st.cache_resource
-def start_flet():
-    # Runs main.py on a background port
-    subprocess.Popen([sys.executable, "main.py"])
+# Option: Run Flet app components directly or via web server configuration
+import main  # This imports your main.py logic
 
-start_flet()
-
-# Embeds the local Flet web server view directly into the Streamlit page
-st.components.v1.iframe("http://localhost:8550", height=800, scrolling=True)
+st.info("If the application interface does not render automatically below, please ensure your main Flet function is exported or initialized for web view.")
