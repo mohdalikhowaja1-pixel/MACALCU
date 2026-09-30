@@ -27,17 +27,17 @@ except Exception as e:
 
 st.write("Welcome to your financial suite dashboard. Select a calculation module below:")
 
-# Provide native Streamlit quick-access tabs or expanders that trigger your modules
+# Provide native Streamlit quick-access tabs that trigger your modules
 tab1, tab2, tab3, tab4 = st.tabs(["🏠 Home / Overview", "💰 EMI Calculator", "📈 SIP Calculator", "📝 Expense Tracker"])
 
 with tab1:
     st.subheader("Dashboard Overview")
-    st.info("Your application layout is connected. Use the navigation options below or check out your native panels.")
+    st.info("Your application layout is connected. Use the navigation options below.")
     try:
         from screens.home import build_home_screen
         st.write("Home module loaded successfully.")
     except Exception as ex:
-        st.warning(fCould not load home screen module directly: {ex})
+        st.warning(f"Could not load home screen module directly: {ex}")
 
 with tab2:
     st.subheader("EMI Calculation Suite")
